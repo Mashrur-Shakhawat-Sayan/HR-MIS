@@ -1,0 +1,2 @@
+# HR-MIS uses only the Python standard library (Python 3.10+).
+# Nothing needs to be installed with pip.

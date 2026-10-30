@@ -1,0 +1,9 @@
+# runtime data — contains personal and salary information, never commit it
+data/
+*.db
+*.db-wal
+*.db-shm
+__pycache__/
+*.pyc
+.vscode/
+.idea/

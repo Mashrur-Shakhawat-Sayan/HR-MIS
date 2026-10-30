@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>HR-MIS</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230b6e4f'/%3E%3Ctext x='16' y='21' font-size='13' font-family='Arial' font-weight='700' fill='white' text-anchor='middle'%3EHR%3C/text%3E%3C/svg%3E">
+  <link rel="preload" href="/fonts/InstrumentSans-Regular.woff" as="font" type="font/woff" crossorigin>
+  <link rel="stylesheet" href="/css/app.css">
+  <script src="/js/theme.js"></script>
+</head>
+<body>
+  <!-- Sign-in -->
+  <section id="login" class="login hidden">
+    <div class="login-art">
+      <div class="mark"><div class="logo lg" id="loginLogo">HR</div><div><b id="loginCompany">HR-MIS</b><small>Human resource management</small></div></div>
+      <h2>People, time and pay for every company in the group.</h2>
+      <p>One system for HR, payroll and line managers. Every employee also gets a self-service workspace.</p>
+      <ul id="loginPoints"></ul>
+      <div class="foot">Runs on your own server. Records never leave the office.</div>
+    </div>
+    <div class="login-form">
+      <form id="loginForm" autocomplete="on">
+        <div>
+          <h1>Sign in</h1>
+          <p class="muted" style="margin:6px 0 0">Use the username and password from your HR administrator.</p>
+        </div>
+        <label class="fld"><span>Username</span><input name="username" autocomplete="username" required autofocus></label>
+        <label class="fld"><span>Password</span><input name="password" type="password" autocomplete="current-password" required></label>
+        <div id="loginError" class="form-error hidden" role="alert"></div>
+        <button class="btn block" type="submit">Sign in</button>
+        <details class="demo"><summary>Demo accounts (select one to fill the form)</summary>
+          <table id="demoAccounts">
+            <tr data-u="admin" data-p="Admin@123"><td>admin</td><td>Admin@123</td><td>System administrator</td></tr>
+            <tr data-u="hr.manager" data-p="Hr@12345"><td>hr.manager</td><td>Hr@12345</td><td>HR manager</td></tr>
+            <tr data-u="hr.officer" data-p="Hr@12345"><td>hr.officer</td><td>Hr@12345</td><td>HR officer</td></tr>
+            <tr data-u="payroll" data-p="Pay@12345"><td>payroll</td><td>Pay@12345</td><td>Payroll officer</td></tr>
+            <tr data-u="manager" data-p="Mgr@12345"><td>manager</td><td>Mgr@12345</td><td>Line manager</td></tr>
+            <tr data-u="employee" data-p="Emp@12345"><td>employee</td><td>Emp@12345</td><td>Employee</td></tr>
+          </table>
+        </details>
+      </form>
+    </div>
+  </section>
+
+  <!-- Application -->
+  <div id="app" class="app hidden">
+    <aside class="side" aria-label="Main navigation">
+      <div class="brand"><div class="logo" id="brandLogo">HR</div><div><b id="brandName">HR-MIS</b><small>HR management</small></div></div>
+      <nav id="nav"></nav>
+      <div class="side-foot"><span id="version">HR-MIS 1.1</span><span id="roleFoot"></span></div>
+    </aside>
+    <div class="scrim" data-act="app:menu"></div>
+    <div class="main-wrap">
+      <header class="top">
+        <button class="icon-btn menu" data-act="app:menu" aria-label="Open menu" id="menuBtn"></button>
+        <button class="search-trigger" data-act="app:palette" id="searchBtn" aria-label="Search people and pages"></button>
+        <span class="grow"></span>
+        <span class="top-date hide-sm" id="todayPill"></span>
+        <button class="icon-btn" data-act="app:theme" id="themeBtn" aria-label="Switch light or dark theme"></button>
+        <div class="user-menu">
+          <button class="user-btn" data-act="app:usermenu" aria-haspopup="true"><span class="av sm" id="userAv">A</span><span class="hide-sm"><b id="userName">User</b><small id="userRole">Role</small></span></button>
+          <div class="dropdown hidden" id="userDrop"></div>
+        </div>
+      </header>
+      <div class="page-head" id="pageHead"><div><h1 id="pageTitle">Dashboard</h1><p id="pageSub"></p></div></div>
+      <main id="main"></main>
+    </div>
+  </div>
+
+  <div id="modal" class="modal"></div>
+  <div id="toasts" class="toasts" aria-live="polite"></div>
+  <script type="module" src="/js/app.js"></script>
+</body>
+</html>
